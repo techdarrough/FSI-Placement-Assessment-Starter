@@ -21,6 +21,9 @@ let gb = 0      // Gingerbread
 let cc = 0      // Chocolate Chip
 let sugar = 0   // Sugar Sprinkle
 
+
+
+
 // Code to update name display 
 document.getElementById('credit').textContent = `Created by ${yourName}`
 
@@ -37,7 +40,14 @@ gbButtonPlus.addEventListener('click', function() {
 gbButtonMinus.addEventListener('click', function() {
     gb = gb - 1 
     // console.log(gb)
-   gbTableCell.textContent = gb
+   
+   if(gb <= 0){
+    gb = 0
+    // console.log(gb)
+    gbTableCell.textContent = gb
+} else {
+    gbTableCell.textContent = gb
+}
 //    localStorage.setItem('gb', gb)
 
 })
@@ -54,7 +64,13 @@ ccButtonPlus.addEventListener('click', function() {
 ccButtonMinus.addEventListener('click', function() {
     cc = cc - 1 
     // console.log(cc)
-   ccTableCell.textContent = cc
+    if(cc <= 0){
+        cc = 0
+        // console.log(gb)
+        ccTableCell.textContent = cc
+    } else {
+        ccTableCell.textContent = cc
+    }
 //    localStorage.setItem('cc', cc)
 
 })
@@ -72,7 +88,13 @@ sugarButtonPlus.addEventListener('click', function() {
 sugarButtonMinus.addEventListener('click', function() {
     sugar = sugar - 1 
     // console.log(sugar)
-   sugarTableCell.textContent = sugar
+    if(sugar <= 0){
+        sugar = 0
+        // console.log(gb)
+        sugarTableCell.textContent = sugar
+    } else {
+        sugarTableCell.textContent = sugar
+    }
 //    localStorage.setItem('sugar', sugar)
 
 })
