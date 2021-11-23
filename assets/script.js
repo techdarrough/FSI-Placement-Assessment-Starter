@@ -3,6 +3,7 @@
 let gbTableCell = document.querySelector('#qty-gb')
 let ccTableCell = document.querySelector('#qty-cc')
 let sugarTableCell = document.querySelector('#qty-sugar')
+let totalTableCell = document.querySelector('#qty-total')
 
 
 //buttons 
@@ -20,18 +21,22 @@ let yourName = "Preston Darrough" // replaced
 let gb = 0      // Gingerbread
 let cc = 0      // Chocolate Chip
 let sugar = 0   // Sugar Sprinkle
+let total = 0
 
 
 
 
-// Code to update name display 
+// Code to update name display Than 
 document.getElementById('credit').textContent = `Created by ${yourName}`
 
 // Event listener for clicks on the "+" button for Gingerbread cookies
 gbButtonPlus.addEventListener('click', function() {
     gb = gb + 1 
+    total = gb + cc + sugar
     // console.log(gb)
    gbTableCell.textContent = gb
+   
+   totalTableCell.textContent = total 
 //    localStorage.setItem('gb', gb)
 
     
@@ -39,6 +44,8 @@ gbButtonPlus.addEventListener('click', function() {
 
 gbButtonMinus.addEventListener('click', function() {
     gb = gb - 1 
+    total = gb + cc + sugar
+    // totalTableCell.textContent = total 
     // console.log(gb)
    
    if(gb <= 0){
@@ -48,6 +55,17 @@ gbButtonMinus.addEventListener('click', function() {
 } else {
     gbTableCell.textContent = gb
 }
+// cond for total 
+if(total <= 0){
+    total = 0
+    // console.log('total reset')
+    totalTableCell.textContent = total
+} else {
+    totalTableCell.textContent = total 
+    // console.log(total)
+}
+
+
 //    localStorage.setItem('gb', gb)
 
 })
@@ -55,14 +73,17 @@ gbButtonMinus.addEventListener('click', function() {
 // Chocolate Chips cookies counted here
 ccButtonPlus.addEventListener('click', function() {
     cc = cc + 1 
+    total = gb + cc + sugar
     // console.log(cc)
    ccTableCell.textContent = cc
+   totalTableCell.textContent = total 
 //    localStorage.setItem('cc', cc)
 
 })
 
 ccButtonMinus.addEventListener('click', function() {
     cc = cc - 1 
+    total = gb + cc + sugar
     // console.log(cc)
     if(cc <= 0){
         cc = 0
@@ -70,6 +91,17 @@ ccButtonMinus.addEventListener('click', function() {
         ccTableCell.textContent = cc
     } else {
         ccTableCell.textContent = cc
+        
+    }
+
+    // cond for total 
+    if(total <= 0){
+        total = 0
+        // console.log('total reset')
+        totalTableCell.textContent = total
+    } else {
+        totalTableCell.textContent = total 
+        // console.log(total)
     }
 //    localStorage.setItem('cc', cc)
 
@@ -79,14 +111,17 @@ ccButtonMinus.addEventListener('click', function() {
 
 sugarButtonPlus.addEventListener('click', function() {
     sugar = sugar + 1 
+    total = gb + cc + sugar
     // console.log(sugar)
    sugarTableCell.textContent = sugar
+   totalTableCell.textContent = total 
 //    localStorage.setItem('sugar', sugar)
 
 })
 
 sugarButtonMinus.addEventListener('click', function() {
     sugar = sugar - 1 
+    total = gb + cc + sugar
     // console.log(sugar)
     if(sugar <= 0){
         sugar = 0
@@ -94,6 +129,17 @@ sugarButtonMinus.addEventListener('click', function() {
         sugarTableCell.textContent = sugar
     } else {
         sugarTableCell.textContent = sugar
+        
+    }
+
+    // cond for total 
+    if(total <= 0){
+        total = 0
+        // console.log('total reset')
+        totalTableCell.textContent = total
+    } else {
+        totalTableCell.textContent = total 
+        // console.log(total)
     }
 //    localStorage.setItem('sugar', sugar)
 
